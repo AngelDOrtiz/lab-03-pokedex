@@ -6,12 +6,11 @@ export default class PokeDex extends Component {
 
     const pokemon = this.props.pokemon;
     console.log(pokemon);
-    
     return (
       <ul className="PokeDex">
-        {/* { pokemon.map(pokemon => (
-          <PokeItem key={pokemon.name} pokeProp={pokemon}/>
-        )) } */}
+        { pokemon.map(pokemon => (
+          <PokeItem key={pokemon._id} pokeProp={pokemon}/>
+        )) }
       </ul>
     );
   }
