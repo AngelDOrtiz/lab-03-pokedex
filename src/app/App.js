@@ -2,7 +2,7 @@ import { Component } from 'react';
 import './App.css';
 import React from 'react';
 import PokeDex from '../PokeDex';
-import PokeData from '../PokeData';
+// import PokeData from '../PokeData';
 import PokeSearch from '../PokeSearch';
 import request from 'superagent';
 
@@ -21,7 +21,7 @@ class App extends Component {
     //   loading: true
     // });
     const pokeData = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?perPage=24&pokemon=${this.state.query}&sort=${this.state.sortBy}&direction=${this.state.ascOrDesc}`);
-    
+
     this.setState({
       pokemon: pokeData.body.results,
       // loading: false
@@ -31,9 +31,10 @@ class App extends Component {
   componentDidMount() {
     this.getPokemonApi();
   }
-  // handleSearch = ({ nameFilter, sortField }) => {
-  //   const nameRegex = new RegExp(nameFilter, 'i');
-
+  handleSearch = ({ nameFilter, sortField }) => {
+    const nameRegex = new RegExp(nameFilter, 'i');
+    this.state.pokemon;
+  }
   //   const searchedData = PokeData
   //     .filter(pokemon => {
   //       return !nameFilter || pokemon.pokemon.match(nameRegex);
@@ -48,17 +49,17 @@ class App extends Component {
 
   render() {
     const { pokemon } = this.state;
-   
+
     return (
       <div className="App">
-        
-  
+
+
         <main>
-          <PokeDex pokemon={pokemon}/>
-          <PokeSearch onSearch={this.handleSearch}/>
+          <PokeDex pokemon={pokemon} />
+          <PokeSearch onSearch={this.handleSearch} />
         </main>
-        
-      
+
+
       </div>
     );
   }
