@@ -31,10 +31,10 @@ class App extends Component {
   componentDidMount() {
     this.getPokemonApi();
   }
-  handleSearch = ({ nameFilter, sortField }) => {
-    const nameRegex = new RegExp(nameFilter, 'i');
-    this.state.pokemon;
-  }
+  // handleSearch = ({ nameFilter, sortField }) => {
+  //   const nameRegex = new RegExp(nameFilter, 'i');
+  //   this.state.pokemon;
+  // }
   //   const searchedData = PokeData
   //     .filter(pokemon => {
   //       return !nameFilter || pokemon.pokemon.match(nameRegex);
